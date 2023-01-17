@@ -12,3 +12,5 @@ Please download this!!
 
 3.import URDF to gazebo
 
+4.更改transmittion、yaml
+

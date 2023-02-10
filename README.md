@@ -15,4 +15,4 @@ Please download this!!
 4.更改transmittion、yaml
 
 ### 2023/02/11 ###
-1.
+1.做了很多事之後再補

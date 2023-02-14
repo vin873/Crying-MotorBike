@@ -32,7 +32,6 @@ Please download this!!
 
     $ rostopic echo /imu
 
-or
 
     $ cd /crying_MOTOROiD/src/wheel/urdf
     $ python3 imu.py

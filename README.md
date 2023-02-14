@@ -57,7 +57,7 @@ https://classic.gazebosim.org/tutorials?tut=ros_control&cat=connect_ros
 
 #### 4. 更改材質，輸入轉動慣量
 
-    *問題：轉動慣量的計算原點和軸*
+*問題：轉動慣量的計算原點和軸*
 
 
 

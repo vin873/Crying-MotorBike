@@ -2,10 +2,10 @@
 
 Please download this!!
 
-### 2023/01/16 ###
+## 2023/01/16
 1.成功下載Fusion 360
 
-### 2023/01/17 ###
+## 2023/01/17 
 1.Fusion 360 to URDF
 
 2.重灌ubuntu + roscore
@@ -14,5 +14,6 @@ Please download this!!
 
 4.更改transmittion、yaml
 
-### 2023/02/11 ###
-1.做了很多事之後再補
+## 2023/02/11 
+1.gazebo launch:
+

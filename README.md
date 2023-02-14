@@ -15,30 +15,31 @@ Please download this!!
 4.更改transmittion、yaml
 
 ## 2023/02/11 
-1. gazebo launch:
+
+#### 1. gazebo launch:
 
     $ cd crying_MOTOROiD/
     $ source devel/setup.bash
     $ roslaunch Perfect_Wheel_description gazebo.launch
     
-2. controller launch:
+#### 2. controller launch:
 
     $ cd crying_MOTOROiD/
     $ source devel/setup.bash
     $ roslaunch Perfect_Wheel_description controller.launch
     
-3. imu:
+#### 3. imu:
 
     $ rostopic echo /imu
             or
     $ cd /crying_MOTOROiD/src/wheel/urdf
     $ python3 imu.py
     
-4. pid
+#### 4. pid
 
     $ rosrun rqt_reconfigure rqt_reconfigure
     
-5. back wheel speed:
+#### 5. back wheel speed:
 
     $
 

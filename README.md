@@ -37,7 +37,7 @@ or
     cd crying_MOTOROiD/src/wheel/urdf
     python3 imu.py
     
-#### 4. pid
+#### 4. pid:
 https://wiki.ros.org/rqt_reconfigure
 
     rosrun rqt_reconfigure rqt_reconfigure

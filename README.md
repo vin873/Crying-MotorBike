@@ -31,18 +31,21 @@ Please download this!!
 #### 3. imu:
 
     $ rostopic echo /imu
-
-
+    
+or
+    
     $ cd /crying_MOTOROiD/src/wheel/urdf
     $ python3 imu.py
     
 #### 4. pid
+https://wiki.ros.org/rqt_reconfigure
 
     $ rosrun rqt_reconfigure rqt_reconfigure
     
 #### 5. back wheel speed:
+https://classic.gazebosim.org/tutorials?tut=ros_control&cat=connect_ros
 
-    $
+    $ rostopic pub -1 /back_wheel_position_controller/command std_msgs/Float64 "data: 1"
 
 
 

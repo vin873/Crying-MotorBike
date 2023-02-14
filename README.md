@@ -46,6 +46,17 @@ https://wiki.ros.org/rqt_reconfigure
 https://classic.gazebosim.org/tutorials?tut=ros_control&cat=connect_ros
 
     rostopic pub -1 /back_wheel_joint_position_controller/command std_msgs/Float64 "data: 1"
+    
+## 2023/02/15 
+
+#### 1. 前叉角度傾斜20
+
+#### 2. 車輪圓角加大
+
+#### 3. 加配重
+
+#### 4. 更改材質，輸入轉動慣量
+
 
 
 

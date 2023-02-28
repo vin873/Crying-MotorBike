@@ -60,6 +60,9 @@ https://classic.gazebosim.org/tutorials?tut=ros_control&cat=connect_ros
 *問題：轉動慣量的計算原點和軸*
 
 
+## 2023/02/28
+
+#### 1. 更新轉動慣量
 
 
 

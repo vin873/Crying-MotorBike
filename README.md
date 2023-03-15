@@ -68,7 +68,8 @@ https://classic.gazebosim.org/tutorials?tut=ros_control&cat=connect_ros
 
 #### 1. 前叉、後叉、body的材料是鋁
 #### 2. 配重塊是stainless steel
-#### 3. 本日最終版本：bibi(圖檔) bi(launch)
+#### 3. 輪子是rubber
+#### 4. 本日最終版本：bibi(圖檔) bi(launch)
 
 
 

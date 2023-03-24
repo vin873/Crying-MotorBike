@@ -71,6 +71,6 @@ https://classic.gazebosim.org/tutorials?tut=ros_control&cat=connect_ros
 #### 3. 輪子是rubber
 #### 4. 本日最終版本：bibi(圖檔) bi(launch)
 
-
+https://answers.gazebosim.org/question/27178/looking-for-a-stable-solution-to-reset-a-robot-with-controller-in-gazebo/
 
     

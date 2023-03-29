@@ -1,6 +1,7 @@
 # Crying-MotorBike
 
 Please download this!!
+    sudo apt-get install ros*controller
 
 ## 2023/01/16
 1.成功下載Fusion 360

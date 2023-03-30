@@ -12,7 +12,7 @@
   <mu2>0.2</mu2>
   <selfCollide>true</selfCollide>
   <gravity>true</gravity>
-  <sensor name="imu_sensor" type="imu">
+  <!-- <sensor name="imu_sensor" type="imu">
     <always_on>true</always_on>
     <update_rate>0</update_rate>
     <visualize>true</visualize>
@@ -28,7 +28,7 @@
       <initialOrientationAsReference>false</initialOrientationAsReference>
     </plugin>
     <pose>0 0 0 0 0 0</pose>
-  </sensor>
+  </sensor> -->
 </gazebo>
 
 <gazebo reference="body_1">

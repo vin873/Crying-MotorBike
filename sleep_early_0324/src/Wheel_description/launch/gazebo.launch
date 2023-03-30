@@ -10,7 +10,4 @@
   </include>
 
   <include file="$(find Wheel_description)/launch/controller.launch" />
-
-  <node name="imu_data" pkg="Wheel_description" type="imu_data.py" respawn="true" output="screen"/>
-
 </launch>

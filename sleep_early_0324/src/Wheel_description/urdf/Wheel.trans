@@ -23,7 +23,7 @@
   </actuator>
 </transmission>
 
-<transmission name="Revolute_5_tran">
+<!-- <transmission name="Revolute_5_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Revolute_5">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
@@ -32,7 +32,7 @@
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
-</transmission>
+</transmission> -->
 
 <transmission name="Revolute_6_tran">
   <type>transmission_interface/SimpleTransmission</type>

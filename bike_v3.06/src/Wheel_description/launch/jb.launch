@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ 
+<launch> 
+   
+  <arg name="map_file" default="$(find bicycle_ros)/map/nthu_world.yaml"/> 
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/> 
+   
+   
+  <!-- TF Transform Robot To Map --> 
+  <!--<node pkg="tf" type="static_transform_publisher" name="tf" args="0 0 0 0 0 0 bike/base_link map 50"/>--> 
+  <!--<node pkg="tf" type="static_transform_publisher" name="tf2" args="0 0 0 0 0 0 map /bike/odom 50"/>--> 
+  <node pkg="tf" type="static_transform_publisher" name="tf22" args="0 0 0 0 0 0 /odommm /bike/base_link 5"/> 
+   
+   
+  <!-- Launch Gazebo --> 
+  <!--arg name="world" default="$(find bicycle_ros)/world/square_world.world"/--> 
+  <arg name="world" default="$(find bicycle_ros)/world/empty_world.world"/> 
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"> 
+    <arg name="paused" value="false"/> 
+    <arg name="use_sim_time" value="true"/> 
+    <arg name="gui" value="true"/> 
+    <arg name="headless" value="false"/> 
+    <arg name="debug" value="false"/> 
+    <arg name="world_name" value="$(arg world)" /> 
+  </include> 
+   
+   
+   
+  <!-- Place Model Into World With Namespace "obstacles" --> 
+  <group ns="/obstacle1"> 
+    <!-- IMPORTANT to add tf prefix --> 
+    <param name="tf_prefix" value="/obstacle1" /> 
+     
+    <arg name="x" default="154"/> 
+    <arg name="y" default="126.2"/> 
+    <arg name="z" default="0.5"/> 
+     
+    <node pkg="tf" type="static_transform_publisher" name="tf33" args="$(arg x) $(arg y) $(arg z) 0 0 0 /map /obstacle1/obstacle 5"/> 
+     
+    <!-- Robot Model --> 
+    <param name="robot_description" command="$(find xacro)/xacro $(find bicycle_ros)/urdf/obstacle.xacro ns:=/obstacle1"/> 
+     
+    <!-- Spawn Robot Model --> 
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-param robot_description -urdf -model obstacle1" />     
+  </group> 
+   
+  <!-- Place Model Into World With Namespace "obstacles" --> 
+  <group ns="/obstacle2"> 
+    <!-- IMPORTANT to add tf prefix --> 
+    <param name="tf_prefix" value="/obstacle2" /> 
+     
+    <arg name="x" default="153"/> 
+    <arg name="y" default="124.5"/> 
+    <arg name="z" default="0.5"/> 
+     
+    <node pkg="tf" type="static_transform_publisher" name="tf33" args="$(arg x) $(arg y) $(arg z) 0 0 0 /map /obstacle2/obstacle 5"/> 
+     
+    <!-- Robot Model --> 
+    <param name="robot_description" command="$(find xacro)/xacro $(find bicycle_ros)/urdf/obstacle.xacro ns:=/obstacle2"/> 
+     
+    <!-- Spawn Robot Model --> 
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-param robot_description -urdf -model obstacle2" />     
+  </group> 
+   
+  <group ns="/obstacle3"> 
+    <!-- IMPORTANT to add tf prefix --> 
+    <param name="tf_prefix" value="/obstacle3" /> 
+     
+    <arg name="x" default="134"/> 
+    <arg name="y" default="97"/> 
+    <arg name="z" default="0.5"/> 
+     
+    <node pkg="tf" type="static_transform_publisher" name="tf33" args="$(arg x) $(arg y) $(arg z) 0 0 0 /map /obstacle3/obstacle 5"/> 
+     
+    <!-- Robot Model --> 
+    <param name="robot_description" command="$(find xacro)/xacro $(find bicycle_ros)/urdf/obstacle.xacro ns:=/obstacle3"/> 
+     
+    <!-- Spawn Robot Model --> 
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-param robot_description -urdf -model obstacle3" />     
+  </group> 
+   
+  <group ns="/obstacle4"> 
+    <!-- IMPORTANT to add tf prefix --> 
+    <param name="tf_prefix" value="/obstacle4" /> 
+     
+    <arg name="x" default="128"/> 
+    <arg name="y" default="87.5"/> 
+    <arg name="z" default="0.5"/> 
+     
+    <node pkg="tf" type="static_transform_publisher" name="tf33" args="$(arg x) $(arg y) $(arg z) 0 0 0 /map /obstacle4/obstacle 5"/> 
+     
+    <!-- Robot Model --> 
+    <param name="robot_description" command="$(find xacro)/xacro $(find bicycle_ros)/urdf/obstacle.xacro ns:=/obstacle4"/> 
+     
+    <!-- Spawn Robot Model --> 
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-param robot_description -urdf -model obstacle4" />     
+  </group> 
+   
+  <group ns="/obstacle5"> 
+    <!-- IMPORTANT to add tf prefix --> 
+    <param name="tf_prefix" value="/obstacle5" /> 
+     
+    <arg name="x" default="152"/> 
+    <arg name="y" default="119"/> 
+    <arg name="z" default="0.5"/> 
+     
+    <node pkg="tf" type="static_transform_publisher" name="tf33" args="$(arg x) $(arg y) $(arg z) 0 0 0 /map /obstacle5/obstacle 5"/> 
+     
+    <!-- Robot Model --> 
+    <param name="robot_description" command="$(find xacro)/xacro $(find bicycle_ros)/urdf/obstacle.xacro ns:=/obstacle5"/> 
+     
+    <!-- Spawn Robot Model --> 
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-param robot_description -urdf -model obstacle5" />     
+  </group> 
+   
+     
+  <!-- Place Model Into World With Namespace "bike" --> 
+  <group ns="/bike"> 
+    <!-- IMPORTANT to add tf prefix --> 
+    <param name="tf_prefix" value="/bike" /> 
+     
+    <!-- Set Arguments --> 
+    <arg name="x" default="134.273"/> 
+    <arg name="y" default="139.296"/> 
+    <arg name="z" default="0.6"/> 
+    <arg name="Y" default="-0.65"/> 
+    <!--arg name="Y" default="0.0"/--> 
+     
+    <!-- Robot Model --> 
+    <param name="robot_description" command="$(find xacro)/xacro $(find bicycle_ros)/urdf/bicycle.xacro ns:=/bike"/> 
+     
+    <!-- Spawn Robot Model --> 
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-param robot_description -urdf -model bicycle  
+                -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg Y)" />         
+     
+    <!-- Load Controllers --> 
+    <rosparam file="$(find bicycle_ros)/config/controller2.yaml" command="load"/> 
+ 
+    <!-- Controllers --> 
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" 
+      respawn="false" output="screen" ns="/bike" args="--namespace=/bike  
+      joint_state_controller 
+      front_fork_controller   
+      back_wheel_controller 
+      --timeout 60"> 
+    </node>     
+     
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"> 
+      <remap from="/joint_states" to="/bike/joint_states"/> 
+      <param name="publish_rate" type="double" value="200.0" /> 
+      <param name="tf_prefix" value="/bike" /> 
+    </node> 
+     
+  </group> 
+   
+  <!-- 
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/> 
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/> 
+  <arg name="model" default="$(find bicycle_ros)/urdf/bicycle.xacro "/> 
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>--> 
+   
+  <node pkg="odometry_tf" type="odometry_tf" name="odometry_tf" output= "screen" > 
+    <param name="odometry_topic_name" value="/bike/odom"/> 
+    <param name="frame_id" value="/map"/> 
+    <param name="child_frame_id" value="/odommm"/> 
+  </node> 
+   
+  <arg name="rvizconfig" default="$(find bicycle_ros)/launch/urdf.rviz"/> 
+  <node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/> 
+</launch>

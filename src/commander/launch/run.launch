@@ -1,4 +1,0 @@
-<launch>
-  <node pkg="commander" name="commander_node" type="run.py" output="screen"/>
-  <node pkg="commander" name="angle_node" type="angPub.py" output="screen"/>
-</launch>

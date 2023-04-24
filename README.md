@@ -47,7 +47,9 @@ https://wiki.ros.org/rqt_reconfigure
 #### 5. back wheel speed:
 https://classic.gazebosim.org/tutorials?tut=ros_control&cat=connect_ros
 
-    rostopic pub -1 /back_wheel_joint_position_controller/command std_msgs/Float64 "data: 1"
+    rostopic pub -1 /back_wh_position_controller/command std_msgs/Float64 "data: -1"
+    rostopic pub -1 /front_wh_position_controller/command std_msgs/Float64 "data: -1"
+
     
 ## 2023/02/15 
 

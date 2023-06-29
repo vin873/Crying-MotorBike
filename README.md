@@ -91,6 +91,28 @@ https://classic.gazebosim.org/tutorials?tut=ros_control&cat=connect_ros
 #### 4. plot theta   
 
     rqt_plot /bikeAng
+
+## 2023/06/29
+#### 1. test prbs
+
+    roslaunch robot_launch test_prbs.launch 
+
+#### 2. prbs config
+
+    rostopic pub -1 /startornot std_msgs/Int32 "data: 1"
+    rostopic pub -1 /refreshRate std_msgs/Float64 "data: 1"
+    rostopic pub -1 /period std_msgs/Float64 "data: 0.001"
+
+#### 3. rosbag record
+
+    rosbag record /inout
+    
+#### 4. rosbag_to_csv
+
+    rosdep install -r --ignore-src --from-paths src
+    catkin_make
+    source devel/setup.bash
+    rosrun rosbag_to_csv rosbag_to_csv.py
     
 
 https://answers.gazebosim.org/question/27178/looking-for-a-stable-solution-to-reset-a-robot-with-controller-in-gazebo/

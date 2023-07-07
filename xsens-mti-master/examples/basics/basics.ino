@@ -16,7 +16,6 @@ int flag=0,caliTimes=200;
 float currTotalPitch=0,currTotalRoll=0,currTotalYaw=0,offsetPitch=0,offsetRoll=0,offsetYaw=0;
 // Callback function used by the library
 void imu_callback( XsensEventFlag_t event, XsensEventData_t *mtdata );
-
 // The library holds state and pointers to callbacks in this structure
 //   - macro used to simplfiy instantiation, read write_config example for more 
 xsens_interface_t imu_interface = XSENS_INTERFACE_RX( &imu_callback );
@@ -32,6 +31,10 @@ void setup( void )
     Serial.begin( 115200 );
     Serial1.begin( 115200 );
     pinMode( LED_BUILTIN, OUTPUT );
+    UART_Send_GyroBiasEst();
+    for(int i=0;i<100;i++){
+      UART_Send_ResetHeading();
+      }
 }
 
 void loop( void )
@@ -87,17 +90,19 @@ void imu_callback( XsensEventFlag_t event, XsensEventData_t *mtdata )
                 // Convert the quaternion to euler angles
                 xsens_quaternion_to_euler( mtdata->data.f4x4, euler_pry );
                 float first[3]={cos(euler_pry[0]),0,sin(euler_pry[0])},second[3]={0,cos(euler_pry[1]),sin(euler_pry[1])};
-                Serial.println(crossProduct(first,second), 5);
+                float inclination=(crossProduct(first,second));
                 // Convert from radians to degrees
-//                euler_pry[0] *= (180.0 / PI);
-//                euler_pry[1] *= (180.0 / PI);
-//                euler_pry[2] *= (180.0 / PI);
-//                Serial.print("  Euler_x : ");
-//                Serial.print(euler_pry[0],5);
-//                Serial.print("  Euler_y : ");
-//                Serial.print(euler_pry[1],5);
-//                Serial.print("  Euler_z : ");
-//                Serial.println(euler_pry[2],5);
+                euler_pry[0] *= (180.0 / PI);
+                euler_pry[1] *= (180.0 / PI);
+                euler_pry[2] *= (180.0 / PI);
+                Serial.print("Inclination : ");
+                Serial.print(inclination,5);
+                Serial.print("  p : ");
+                Serial.print(euler_pry[0],5);
+                Serial.print("  r : ");
+                Serial.print(euler_pry[1],5);
+                Serial.print("  y : ");
+                Serial.println(euler_pry[2],5);
             }
             break;
 
@@ -130,4 +135,44 @@ void imu_callback( XsensEventFlag_t event, XsensEventData_t *mtdata )
             }
             break;
     }
+}
+
+void UART_Send(uint8_t u8_data) {
+  Serial1.write(u8_data);
+}
+
+void UART_Send_GyroBiasEst(){
+  UART_Send(0xFA); 
+  UART_Send(0xFF); 
+  UART_Send(0x22); 
+  UART_Send(0x02); 
+  UART_Send(0x00); 
+  UART_Send(0x04); 
+  UART_Send(0xD9); 
+}
+
+void UART_Send_ResetHeading(){
+  UART_Send(0xFA); 
+  UART_Send(0xFF); 
+  UART_Send(0xA4); 
+  UART_Send(0x02); 
+  UART_Send(0x00); 
+  UART_Send(0x01); 
+  UART_Send(0x5A); 
+  
+  UART_Send(0xFA); 
+  UART_Send(0xFF); 
+  UART_Send(0xA4); 
+  UART_Send(0x02); 
+  UART_Send(0x00); 
+  UART_Send(0x04); 
+  UART_Send(0x57); 
+
+  UART_Send(0xFA); 
+  UART_Send(0xFF); 
+  UART_Send(0xA4); 
+  UART_Send(0x02); 
+  UART_Send(0x00); 
+  UART_Send(0x00); 
+  UART_Send(0x5B);   
 }

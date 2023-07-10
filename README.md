@@ -116,3 +116,5 @@ https://classic.gazebosim.org/tutorials?tut=ros_control&cat=connect_ros
     
 
 https://answers.gazebosim.org/question/27178/looking-for-a-stable-solution-to-reset-a-robot-with-controller-in-gazebo/
+
+https://www.instructables.com/Create-Internal-Interrupt-In-Arduino/

@@ -122,3 +122,5 @@ https://www.instructables.com/Create-Internal-Interrupt-In-Arduino/
 ## 2023/07/13
 
     rosrun rosserial_python serial_node.py _baud:=115200 _port:=/dev/ttyACM0
+
+https://github.com/Scottapotamas/xsens-mti

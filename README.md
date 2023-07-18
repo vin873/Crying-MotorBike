@@ -130,8 +130,8 @@ https://github.com/Scottapotamas/xsens-mti
 ## 2023/07/18
 Revolute 7 : Back Fork
 
-Revolute 14: Back Wheel
-
 Revolute 17: Front Fork
 
 Revolute 20: Front Wheel
+
+Revolute 25: Back Wheel

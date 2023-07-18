@@ -1,0 +1,627 @@
+<?xml version="1.0" ?>
+<robot name="new_wheel" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find new_wheel_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find new_wheel_description)/urdf/new_wheel.trans" />
+<xacro:include filename="$(find new_wheel_description)/urdf/new_wheel.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.16713267338172083 4.910783905868963e-18 0.21939362572721388" rpy="0 0 0"/>
+    <mass value="1.4129910899997933e-05"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="seat_1">
+  <inertial>
+    <origin xyz="-0.06945037038883939 4.781618216607395e-10 -0.04748455315424713" rpy="0 0 0"/>
+    <mass value="0.20377216074479634"/>
+    <inertia ixx="0.000235" iyy="0.000937" izz="0.00079" ixy="-0.0" iyz="-0.0" ixz="-0.000256"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.167021 -0.0 -0.218372" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/seat_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.167021 -0.0 -0.218372" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/seat_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component46_1">
+  <inertial>
+    <origin xyz="-0.029037849437891283 -0.0125 -0.02826727634766185" rpy="0 0 0"/>
+    <mass value="0.0036417342040413058"/>
+    <inertia ixx="3e-06" iyy="6e-06" izz="5e-06" ixy="0.0" iyz="0.0" ixz="-3e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.194424 -0.0125 -0.214927" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component46_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.194424 -0.0125 -0.214927" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component46_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="weight_shell_1">
+  <inertial>
+    <origin xyz="-0.03511002454507359 -0.012499873149083148 -0.05966550276458646" rpy="0 0 0"/>
+    <mass value="0.17425085414107583"/>
+    <inertia ixx="0.000341" iyy="0.000507" izz="0.000369" ixy="-0.0" iyz="-0.0" ixz="-0.000135"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.204748 -0.0125 -0.200183" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/weight_shell_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.204748 -0.0125 -0.200183" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/weight_shell_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component34_1">
+  <inertial>
+    <origin xyz="-0.031291959543169406 -0.025977000000000004 -0.02191050423404972" rpy="0 0 0"/>
+    <mass value="0.01131978664941476"/>
+    <inertia ixx="1.2e-05" iyy="1.2e-05" izz="1.6e-05" ixy="-0.0" iyz="0.0" ixz="-6e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.214733 -0.025977 -0.202242" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component34_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.214733 -0.025977 -0.202242" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component34_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="head_1">
+  <inertial>
+    <origin xyz="0.07013007526319537 -0.026029980126457304 0.0021930211549699985" rpy="0 0 0"/>
+    <mass value="0.4512467085681559"/>
+    <inertia ixx="0.000787" iyy="0.000721" izz="0.000898" ixy="0.0" iyz="-1e-06" ixz="-0.000109"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.229559 -0.025977 -0.212624" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/head_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.229559 -0.025977 -0.212624" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/head_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_rmd_1">
+  <inertial>
+    <origin xyz="-0.023549188027445656 -5.331081291247927e-18 -0.016631559564693366" rpy="0 0 0"/>
+    <mass value="0.8103609000511298"/>
+    <inertia ixx="0.000479" iyy="0.000435" izz="0.000461" ixy="-0.0" iyz="0.0" ixz="3.1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.264013 0.0 -0.184864" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/back_rmd_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.264013 0.0 -0.184864" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/back_rmd_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="weight_printed_1">
+  <inertial>
+    <origin xyz="-0.009945916020285217 -0.002067372044876527 -0.06413262683863159" rpy="0 0 0"/>
+    <mass value="0.3445611239037064"/>
+    <inertia ixx="0.000562" iyy="0.000868" izz="0.000457" ixy="1.3e-05" iyz="-1.9e-05" ixz="0.000142"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.216256 -0.0 -0.151424" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/weight_printed_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.216256 -0.0 -0.151424" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/weight_printed_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="weight_stainless_1">
+  <inertial>
+    <origin xyz="-0.014100208670546621 0.025 -0.02022197723546365" rpy="0 0 0"/>
+    <mass value="0.8602235118007558"/>
+    <inertia ixx="0.000536" iyy="0.000786" izz="0.000608" ixy="0.0" iyz="0.0" ixz="-9.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.24087 0.025 -0.078176" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/weight_stainless_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.24087 0.025 -0.078176" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/weight_stainless_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Spine_1">
+  <inertial>
+    <origin xyz="-0.060617111585091754 4.0973329229803804e-18 -0.04244447709330129" rpy="0 0 0"/>
+    <mass value="0.031214864606068152"/>
+    <inertia ixx="1.6e-05" iyy="4e-05" izz="2.8e-05" ixy="-0.0" iyz="-0.0" ixz="-1.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.216256 0.0 -0.151424" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Spine_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.216256 0.0 -0.151424" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Spine_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component35_1">
+  <inertial>
+    <origin xyz="-0.00409621971952151 -7.942854340597642e-18 -0.0028679399005014233" rpy="0 0 0"/>
+    <mass value="0.008945685081096893"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="2e-06" ixy="0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.142451 0.0 -0.099745" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component35_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.142451 0.0 -0.099745" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component35_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_fork_1">
+  <inertial>
+    <origin xyz="-0.022009373054062337 0.000562589509635017 -0.009818923020006018" rpy="0 0 0"/>
+    <mass value="0.22252214563001346"/>
+    <inertia ixx="0.000247" iyy="0.000221" izz="0.000405" ixy="-3e-06" iyz="1e-06" ixz="-2.1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.10649 0.0 -0.074565" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/back_fork_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.10649 0.0 -0.074565" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/back_fork_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component8_1">
+  <inertial>
+    <origin xyz="-0.0009999999999999593 -0.04399999999999998 2.7755575615628914e-17" rpy="0 0 0"/>
+    <mass value="0.009613273519984755"/>
+    <inertia ixx="1.9e-05" iyy="2e-06" izz="2.1e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.066 -0.044 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.066 -0.044 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_rmd_1">
+  <inertial>
+    <origin xyz="0.0057249877501334145 0.0 -0.015387851448897122" rpy="0 0 0"/>
+    <mass value="0.807147474881477"/>
+    <inertia ixx="0.000444" iyy="0.000433" izz="0.000493" ixy="0.0" iyz="-0.0" ixz="-2.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.328526 -0.0 -0.201424" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/front_rmd_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.328526 -0.0 -0.201424" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/front_rmd_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_fork_1">
+  <inertial>
+    <origin xyz="0.013420143089053982 -6.668675121163385e-06 -0.036264956291461786" rpy="0 0 0"/>
+    <mass value="0.26299337612575896"/>
+    <inertia ixx="0.000536" iyy="0.000389" izz="0.000439" ixy="0.0" iyz="0.0" ixz="4.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.344088 -0.0 -0.158668" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/front_fork_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.344088 -0.0 -0.158668" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/front_fork_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component4_1">
+  <inertial>
+    <origin xyz="-0.0025652589578538665 -0.04399999999999999 0.007047788799119312" rpy="0 0 0"/>
+    <mass value="0.012497255575980207"/>
+    <inertia ixx="2.9e-05" iyy="5e-06" izz="2.6e-05" ixy="0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.361189 -0.044 -0.111683" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.361189 -0.044 -0.111683" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component20_1">
+  <inertial>
+    <origin xyz="2.7755575615628914e-16 -0.03199999999999998 5.551115123125783e-17" rpy="0 0 0"/>
+    <mass value="0.0019792033717615726"/>
+    <inertia ixx="1e-06" iyy="0.0" izz="1e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.38 -0.032 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component20_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.38 -0.032 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component20_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component17_1">
+  <inertial>
+    <origin xyz="2.6201263381153694e-14 -0.04500151730789331 -1.3877787807814457e-17" rpy="0 0 0"/>
+    <mass value="0.13607525478847282"/>
+    <inertia ixx="0.000139" iyy="0.000142" izz="0.000139" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.38 -0.045 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component17_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.38 -0.045 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component17_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component16_1">
+  <inertial>
+    <origin xyz="1.7708057242771247e-14 -0.03 1.3877787807814457e-17" rpy="0 0 0"/>
+    <mass value="0.5990577367424242"/>
+    <inertia ixx="0.000266" iyy="0.000372" izz="0.000266" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.38 -0.03 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component16_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.38 -0.03 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component16_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component19_1">
+  <inertial>
+    <origin xyz="-1.2745360322696797e-13 0.0035000000000000066 1.3877787807814457e-17" rpy="0 0 0"/>
+    <mass value="0.018126204213049828"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.38 -0.02 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component19_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.38 -0.02 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component19_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component22_1">
+  <inertial>
+    <origin xyz="-1.2745360322696797e-13 -0.0035000000000000066 1.3877787807814457e-17" rpy="0 0 0"/>
+    <mass value="0.018126204213049828"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.38 0.02 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component22_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.38 0.02 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component22_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="new_back_wheel_1">
+  <inertial>
+    <origin xyz="-1.0191167112354332e-14 -0.0419313882637085 -3.469446951953614e-17" rpy="0 0 0"/>
+    <mass value="2.057953479877597"/>
+    <inertia ixx="0.001992" iyy="0.003064" izz="0.001992" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.042 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/new_back_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.042 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/new_back_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component53_1">
+  <inertial>
+    <origin xyz="-2.7755575615628914e-16 -0.019999999997979585 -4.163336342344337e-17" rpy="0 0 0"/>
+    <mass value="0.05304626207595325"/>
+    <inertia ixx="8.1e-05" iyy="0.000139" izz="8.1e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.38 -0.02 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component53_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.38 -0.02 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://new_wheel_description/meshes/Component53_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid 1" type="fixed">
+  <origin xyz="0.167021 0.0 0.218372" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="seat_1"/>
+</joint>
+
+<joint name="Rigid 2" type="fixed">
+  <origin xyz="0.027403 0.0125 -0.003445" rpy="0 0 0"/>
+  <parent link="seat_1"/>
+  <child link="Component46_1"/>
+</joint>
+
+<joint name="Rigid 3" type="fixed">
+  <origin xyz="0.010324 0.0 -0.014744" rpy="0 0 0"/>
+  <parent link="Component46_1"/>
+  <child link="weight_shell_1"/>
+</joint>
+
+<joint name="Rigid 4" type="fixed">
+  <origin xyz="0.009985 0.013477 0.002059" rpy="0 0 0"/>
+  <parent link="weight_shell_1"/>
+  <child link="Component34_1"/>
+</joint>
+
+<joint name="Rigid 5" type="fixed">
+  <origin xyz="0.014826 0.0 0.010382" rpy="0 0 0"/>
+  <parent link="Component34_1"/>
+  <child link="head_1"/>
+</joint>
+
+<joint name="Rigid 6" type="fixed">
+  <origin xyz="0.034454 -0.025977 -0.02776" rpy="0 0 0"/>
+  <parent link="head_1"/>
+  <child link="back_rmd_1"/>
+</joint>
+
+<joint name="Revolute_7" type="revolute">
+  <origin xyz="-0.047757 0.0 -0.03344" rpy="0 0 0"/>
+  <parent link="back_rmd_1"/>
+  <child link="weight_printed_1"/>
+  <axis xyz="-0.819152 0.0 -0.573576"/>
+  <limit upper="1" lower="-1" effort="18" velocity="100"/>
+</joint>
+
+<joint name="Rigid 8" type="fixed">
+  <origin xyz="0.024614 -0.025 -0.073248" rpy="0 0 0"/>
+  <parent link="weight_printed_1"/>
+  <child link="weight_stainless_1"/>
+</joint>
+
+<joint name="Rigid 9" type="fixed">
+  <origin xyz="0.0 -0.0 0.0" rpy="0 0 0"/>
+  <parent link="weight_printed_1"/>
+  <child link="Spine_1"/>
+</joint>
+
+<joint name="Rigid 10" type="fixed">
+  <origin xyz="-0.062297 -0.0125 -0.100438" rpy="0 0 0"/>
+  <parent link="weight_shell_1"/>
+  <child link="Component35_1"/>
+</joint>
+
+<joint name="Rigid 11" type="fixed">
+  <origin xyz="-0.109766 0.0 -0.076859" rpy="0 0 0"/>
+  <parent link="Spine_1"/>
+  <child link="back_fork_1"/>
+</joint>
+
+<joint name="Rigid 12" type="fixed">
+  <origin xyz="-0.04049 0.044 -0.014565" rpy="0 0 0"/>
+  <parent link="back_fork_1"/>
+  <child link="Component8_1"/>
+</joint>
+
+<joint name="Rigid 16" type="fixed">
+  <origin xyz="0.098967 -0.025977 -0.0112" rpy="0 0 0"/>
+  <parent link="head_1"/>
+  <child link="front_rmd_1"/>
+</joint>
+
+<joint name="Revolute_17" type="fixed">
+  <origin xyz="0.015562 0.0 -0.042756" rpy="0 0 0"/>
+  <parent link="front_rmd_1"/>
+  <child link="front_fork_1"/>
+  <!-- <axis xyz="-0.34202 0.0 0.939693"/> -->
+</joint>
+
+<joint name="Rigid 18" type="fixed">
+  <origin xyz="0.017101 0.044 -0.046985" rpy="0 0 0"/>
+  <parent link="front_fork_1"/>
+  <child link="Component4_1"/>
+</joint>
+
+<joint name="Rigid 19" type="fixed">
+  <origin xyz="0.035912 0.032 -0.098668" rpy="0 0 0"/>
+  <parent link="front_fork_1"/>
+  <child link="Component20_1"/>
+</joint>
+
+<joint name="Revolute_20" type="continuous">
+  <origin xyz="0.0 0.013 0.0" rpy="0 0 0"/>
+  <parent link="Component20_1"/>
+  <child link="Component17_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid 21" type="fixed">
+  <origin xyz="0.0 -0.015 0.0" rpy="0 0 0"/>
+  <parent link="Component17_1"/>
+  <child link="Component16_1"/>
+</joint>
+
+<joint name="Rigid 22" type="fixed">
+  <origin xyz="0.0 -0.01 0.0" rpy="0 0 0"/>
+  <parent link="Component16_1"/>
+  <child link="Component19_1"/>
+</joint>
+
+<joint name="Rigid 23" type="fixed">
+  <origin xyz="0.0 -0.05 0.0" rpy="0 0 0"/>
+  <parent link="Component16_1"/>
+  <child link="Component22_1"/>
+</joint>
+
+<joint name="Revolute_25" type="continuous">
+  <origin xyz="-0.10649 0.042 -0.014565" rpy="0 0 0"/>
+  <parent link="back_fork_1"/>
+  <child link="new_back_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid 27" type="fixed">
+  <origin xyz="0.0 -0.025 0.0" rpy="0 0 0"/>
+  <parent link="Component17_1"/>
+  <child link="Component53_1"/>
+</joint>
+
+</robot>

@@ -126,3 +126,9 @@ https://www.instructables.com/Create-Internal-Interrupt-In-Arduino/
     rosrun rosserial_python serial_node.py _baud:=115200 _port:=/dev/ttyACM0
 
 https://github.com/Scottapotamas/xsens-mti
+
+## 2023/07/18
+Revolute 7 : Back Fork
+Revolute 14: Back Wheel
+Revolute 17: Front Fork
+Revolute 20: Front Wheel

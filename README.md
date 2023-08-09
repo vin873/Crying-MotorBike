@@ -99,7 +99,7 @@ https://classic.gazebosim.org/tutorials?tut=ros_control&cat=connect_ros
 
 #### 2. prbs config
 
-    rostopic pub -1 /startornot std_msgs/Int32 "data: 1"
+    rostopic pub -1 /startornot std_msgs/Float64 "data: 1"
     rostopic pub -1 /refreshRate std_msgs/Float64 "data: 1"
     rostopic pub -1 /period std_msgs/Float64 "data: 0.001"
 

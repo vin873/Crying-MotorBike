@@ -1,0 +1,19 @@
+<launch>
+  <!-- launch commander node -->
+  <param name="robot_description" command="$(find xacro)/xacro $(find new_wheel_description)/urdf/new_wheel.xacro"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+   <arg name="world_name" value="$(find robot_launch)/worlds/robomaster_rale.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <!-- ros_control motoman launch file -->
+  <node pkg="timed_roslaunch" type="timed_roslaunch.sh" args="5 commander commander.launch" name="timed_roslaunch" output="screen"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model new_wheel -R 0.0291469985"/>
+  <include file="$(find robot_control)/launch/controller.launch"/>
+  <!-- <include file="$(find Wheel_description)/launch/controller.launch" /> -->
+</launch>

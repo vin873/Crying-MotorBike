@@ -1,5 +1,0 @@
-<launch>
-  <node pkg="commander" name="commander_node" type="prbs.py" output="screen"/>
-  <node pkg="commander" name="angle_node" type="angPub.py" output="screen"/>
-  <node pkg="commander" name="pub_node" type="pubTeamEpic.py" output="screen"/>
-</launch>

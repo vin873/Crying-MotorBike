@@ -135,3 +135,7 @@ Revolute 17: Front Fork
 Revolute 20: Front Wheel
 
 Revolute 25: Back Wheel
+
+## 2023/10/24
+My Beloved：Kp_p：6.8
+            Kd_p：8.7

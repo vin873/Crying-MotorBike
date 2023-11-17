@@ -29,7 +29,7 @@ uint16_t lastMessageCounter = -1;
 uint8_t player_led_mask = 0;
 bool microphone_led = false;
 
-char brake = 'b';
+char brake = 'B';
 double speed_wagon = 0, initial_sw = 0, initTime = 0;
 double theta = 0;
 
@@ -72,15 +72,17 @@ void loop() {
     lastMessageCounter = PS5.getMessageCounter();
 
     if (abs(speed_wagon) >= 0.1) {
-      brake = 'a';
+      if (brake != 'B' && brake != 'c') {
+        brake = 'a';
+      }
     }
 
     // turning angle
     if (!PS5.getButtonPress(R1) && !PS5.getButtonPress(L1)) {
-      if(abs(PS5.getAnalogHat(RightHatX) - 127) > 10){
+      if (abs(PS5.getAnalogHat(RightHatX) - 127) > 10) {
         theta = PS5.getAnalogHat(RightHatX) - 127;
-      }else{
-        theta=0;
+      } else {
+        theta = 0;
       }
     } else {
       if (PS5.getButtonPress(R1) && PS5.getButtonPress(L1)) {
@@ -94,10 +96,10 @@ void loop() {
     // speed
     if (PS5.getButtonPress(L2) || PS5.getButtonPress(R2)) {
       if (PS5.getButtonPress(L2)) {
-        speed_wagon -= constrain(pow(1.05, (millis() - initTime) / 1000)-0.7,0,500);
+        speed_wagon -= constrain(pow(1.05, (millis() - initTime) / 1000) - 0.7, 0, 500);
       }
       if (PS5.getButtonPress(R2)) {
-        speed_wagon += constrain(pow(1.1, (millis() - initTime) / 1000)-0.8,0,500);
+        speed_wagon += constrain(pow(1.1, (millis() - initTime) / 1000) - 0.8, 0, 500);
       }
     } else {
       initial_sw = speed_wagon;
@@ -116,8 +118,24 @@ void loop() {
     // ebs
     if (PS5.getButtonClick(TRIANGLE) || PS5.getButtonClick(CIRCLE) || PS5.getButtonClick(CROSS) || PS5.getButtonClick(SQUARE) || PS5.getButtonClick(UP) || PS5.getButtonClick(RIGHT) || PS5.getButtonClick(DOWN) || PS5.getButtonClick(LEFT) || PS5.getButtonClick(L3) || PS5.getButtonClick(R3)) {
       speed_wagon = 0;
-      brake = 'b';
+      if (brake != 'B' && brake != 'c') {
+        brake = 'b';
+      }
       Serial.println("brake");
+    }
+    if (PS5.getButtonClick(OPTIONS)) {
+      if (brake == 'a' || brake == 'b') {
+        brake = 'B';
+      } else if (brake == 'B' || brake == 'c') {
+        brake = 'b';
+        speed_wagon = 0;
+        theta = 0;
+      }
+    }
+    if (PS5.getButtonClick(CREATE)) {
+      speed_wagon = 0;
+      theta = 0;
+      brake = 'c';
     }
     // toggle training wheels
     if (PS5.getButtonClick(MICROPHONE)) {

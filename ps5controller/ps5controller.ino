@@ -22,12 +22,14 @@ BTD Btd(&Usb);  // You have to create the Bluetooth Dongle instance like so
 PS5BT PS5(&Btd);
 
 SoftwareSerial coolSerial(2, 3);
+SoftwareSerial coolSerial2(4, 5);
 char n[9];
 
 bool printAngle = false, printTouch = false, ifDecay = false;
 uint16_t lastMessageCounter = -1;
 uint8_t player_led_mask = 0;
 bool microphone_led = false;
+volatile uint8_t Checksum_Calc;
 
 char brake = 'B';
 double speed_wagon = 0, initial_sw = 0, initTime = 0;
@@ -63,6 +65,7 @@ void setup() {
   }
   Serial.print(F("\r\nPS5 Bluetooth Library Started"));
   coolSerial.begin(115200);
+  coolSerial2.begin(500000);
   Serial.begin(57600);
 }
 
@@ -72,7 +75,7 @@ void loop() {
     lastMessageCounter = PS5.getMessageCounter();
 
     if (abs(speed_wagon) >= 0.1) {
-      if (brake != 'B' && brake != 'c') {
+      if (brake != 'B' && brake != 'c' && brake != 'w' && brake != 'W' && brake != 'd' && brake != 'D') {
         brake = 'a';
       }
     }
@@ -111,22 +114,18 @@ void loop() {
     } else if (ifDecay) {
       speed_wagon *= 0.995;
     }
-
-    // if (PS5.getButtonClick(TRIANGLE) || PS5.getButtonClick(CIRCLE) || PS5.getButtonClick(CROSS) || PS5.getButtonClick(SQUARE)) {
-    //   ifDecay = !ifDecay;
-    // }
     // ebs
     if (PS5.getButtonClick(TRIANGLE) || PS5.getButtonClick(CIRCLE) || PS5.getButtonClick(CROSS) || PS5.getButtonClick(SQUARE) || PS5.getButtonClick(UP) || PS5.getButtonClick(RIGHT) || PS5.getButtonClick(DOWN) || PS5.getButtonClick(LEFT) || PS5.getButtonClick(L3) || PS5.getButtonClick(R3)) {
       speed_wagon = 0;
-      if (brake != 'B' && brake != 'c') {
+      if (brake != 'B' && brake != 'c' && brake != 'w' && brake != 'W') {
         brake = 'b';
       }
       Serial.println("brake");
     }
     if (PS5.getButtonClick(OPTIONS)) {
-      if (brake == 'a' || brake == 'b') {
+      if (brake == 'a' || brake == 'b' || brake == 'd' || brake == 'D') {
         brake = 'B';
-      } else if (brake == 'B' || brake == 'c') {
+      } else if (brake == 'B' || brake == 'c' || brake == 'w' || brake == 'W') {
         brake = 'b';
         speed_wagon = 0;
         theta = 0;
@@ -139,17 +138,33 @@ void loop() {
     }
     // toggle training wheels
     if (PS5.getButtonClick(MICROPHONE)) {
-      Serial.print(F("\r\nMicrophone"));
-      microphone_led = !microphone_led;
-      PS5.setMicLed(microphone_led);
-    }
-    // big light
-    if (PS5.getButtonClick(CREATE)) {
-      Serial.print(F("\r\nCreate"));
-    }
-    if (PS5.getButtonClick(OPTIONS)) {
-      Serial.print(F("\r\nOptions"));
-      printAngle = !printAngle;
+      Serial.println(F("\nTraining wheels!"));
+
+      if (microphone_led == false) {
+        if (brake == 'B' || brake == 'c' || brake == 'w') {
+          microphone_led = !microphone_led;
+          PS5.setMicLed(microphone_led);
+          brake = 'W';
+        }
+        if (brake == 'a' || brake == 'b' || brake == 'd')
+        {
+          microphone_led = !microphone_led;
+          PS5.setMicLed(microphone_led);
+          brake = 'D';
+        }
+      } else {
+        if (brake == 'B' || brake == 'c' || brake == 'W') {
+          microphone_led = !microphone_led;
+          PS5.setMicLed(microphone_led);
+          brake = 'w';
+        }
+        if (brake == 'a' || brake == 'b' || brake == 'D')
+        {
+          microphone_led = !microphone_led;
+          PS5.setMicLed(microphone_led);
+          brake = 'd';
+        }
+      }
     }
 
     // horn

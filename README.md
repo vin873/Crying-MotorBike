@@ -141,3 +141,25 @@ My Beloved：
 
     Kp_p：6.8
     Kd_p：8.7
+
+## 2023/11/26
+### With battery
+
+    Kp_p = 8
+    Kd_p = 50
+    dLimit = 8
+    Kp_e = 19
+    Ki_e = 0.05
+    Kd_e = 1.35
+    rate = 0.09
+
+### Without battery
+
+    Kp_p = 7
+    Kd_p = 30
+    dLimit = 7
+    Kp_e = 25
+    Ki_e = 0.085
+    Kd_e = 1.4
+    rate = 0.09
+    
